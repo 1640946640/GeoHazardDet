@@ -434,20 +434,13 @@ GeoHazardDet Team
 
 ---
 
-## 模型下载 / Model Release
+## 获取模型与数据集 / Model & Dataset Access
 
-本项目训练好的权重文件（`.pt`）可以在 GitHub Releases 页面下载。
+本项目训练好的权重文件（`best.pt`）及完整数据集（包含原始 SHP 文件）未直接包含在仓库中。
 
-### 如何发布 Release (致作者)
+**如需获取完整工程文件（包含训练好的模型权重、完整数据集），请联系作者有偿获取。**
 
-由于文件较大，建议手动发布 Release：
+### 联系方式 / Contact
 
-1. 打开 GitHub 仓库页面: https://github.com/1640946640/GeoHazardDet
-2. 点击右侧的 **Releases** -> **Create a new release**
-3. **Choose a tag**: 输入 `v1.0.0`
-4. **Release title**: 输入 `GeoHazardDet v1.0.0 - 预训练模型`
-5. **Describe this release**: 填写模型说明，例如 "包含在完整数据集上训练的 best.pt 模型"
-6. **Attach binaries by dropping them here**: 将本地的 `runs/train/exp/weights/best.pt` 拖拽上传
-7. 点击 **Publish release**
-
-下载者可以在该页面获取模型权重。
+- **作者 QQ**: `1640946640`
+- **说明**: 添加好友时请注明 "GeoHazardDet" 或 "地质灾害检测项目"
