@@ -446,6 +446,9 @@ python src/train.py --resume runs/train/exp/weights/last.pt
 ## 作者
 Freak_64
 
+### 协作开发说明
+本项目采用协作开发模式，欢迎社区贡献。
+
 ## 创建日期
 
 2026-02-13
