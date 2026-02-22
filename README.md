@@ -8,20 +8,20 @@
 
 ## 项目简介
 
-| 项目 | 说明 |
-|------|------|
-| **任务类型** | 目标检测 (Object Detection) |
-| **模型框架** | YOLOv8 |
-| **目标类别** | 2类 (泥石流、滑坡) |
-| **数据集规模** | 1,635 张图片 |
-| **图片尺寸** | 512 × 512 像素 |
+| 项目           | 说明                        |
+| -------------- | --------------------------- |
+| **任务类型**   | 目标检测 (Object Detection) |
+| **模型框架**   | YOLOv8                      |
+| **目标类别**   | 2类 (泥石流、滑坡)          |
+| **数据集规模** | 1,635 张图片                |
+| **图片尺寸**   | 512 × 512 像素              |
 
 ### 类别信息
 
-| ID | 名称 | 说明 |
-|----|------|------|
-| 0 | debris_flow | 泥石流 |
-| 1 | landslide | 滑坡 |
+| ID  | 名称        | 说明   |
+| --- | ----------- | ------ |
+| 0   | debris_flow | 泥石流 |
+| 1   | landslide   | 滑坡   |
 
 ---
 
@@ -29,15 +29,15 @@
 
 以下是模型在验证集上的部分检测结果示例：
 
-| 场景 1 | 场景 2 |
-|:---:|:---:|
+|                 场景 1                  |                 场景 2                  |
+| :-------------------------------------: | :-------------------------------------: |
 | ![Result 1](assets/images/result_1.jpg) | ![Result 2](assets/images/result_2.jpg) |
-| **检测到滑坡/泥石流区域** | **复杂地形下的识别效果** |
+|        **检测到滑坡/泥石流区域**        |        **复杂地形下的识别效果**         |
 
-| 场景 3 | 场景 4 |
-|:---:|:---:|
+|                 场景 3                  |                 场景 4                  |
+| :-------------------------------------: | :-------------------------------------: |
 | ![Result 3](assets/images/result_3.jpg) | ![Result 4](assets/images/result_4.jpg) |
-| **不同尺度的目标检测** | **航拍视角下的灾害识别** |
+|         **不同尺度的目标检测**          |        **航拍视角下的灾害识别**         |
 
 ---
 
@@ -67,7 +67,7 @@ conda activate geohazard
 
 ```bash
 # 安装 ultralytics (包含 YOLOv8)
-pip install ultralytics>=8.1.0
+pip install ultralytics > =8.1.0
 
 # 或使用 requirements.txt
 pip install -r requirements.txt
@@ -97,6 +97,7 @@ python -c "import torch; print(f'CUDA available: {torch.cuda.is_available()}'); 
 ```
 
 输出示例:
+
 ```
 CUDA available: True
 GPU count: 1
@@ -129,19 +130,20 @@ datasets/
 ```
 
 **示例:**
+
 ```
 0 0.635742 0.777344 0.724609 0.441406
 ```
 
 **字段说明:**
 
-| 字段 | 含义 | 范围 |
-|------|------|------|
+| 字段     | 含义                      | 范围 |
+| -------- | ------------------------- | ---- |
 | class_id | 类别ID (0=泥石流, 1=滑坡) | 整数 |
-| x_center | 目标中心X坐标 (归一化) | 0-1 |
-| y_center | 目标中心Y坐标 (归一化) | 0-1 |
-| width | 目标宽度 (归一化) | 0-1 |
-| height | 目标高度 (归一化) | 0-1 |
+| x_center | 目标中心X坐标 (归一化)    | 0-1  |
+| y_center | 目标中心Y坐标 (归一化)    | 0-1  |
+| width    | 目标宽度 (归一化)         | 0-1  |
+| height   | 目标高度 (归一化)         | 0-1  |
 
 ### 数据集配置
 
@@ -213,13 +215,13 @@ Working directory: ...\GeoHazardDet
 
 当参数留空时，使用以下默认值:
 
-| 参数 | 默认值 | 说明 |
-|------|--------|------|
-| --epochs | 100 | 训练轮次 |
-| --batch | 16 | 批次大小 |
-| --device | 0 | GPU 编号 (0/1/... 或 cpu) |
-| --model | yolov8n.pt | 预训练模型 |
-| --data | configs/disaster.yaml | 数据集配置 |
+| 参数     | 默认值                | 说明                      |
+| -------- | --------------------- | ------------------------- |
+| --epochs | 100                   | 训练轮次                  |
+| --batch  | 16                    | 批次大小                  |
+| --device | 0                     | GPU 编号 (0/1/... 或 cpu) |
+| --model  | yolov8n.pt            | 预训练模型                |
+| --data   | configs/disaster.yaml | 数据集配置                |
 
 ### 5. 开始训练
 
@@ -246,40 +248,40 @@ python src/train.py
 
 # 自定义训练
 python src/train.py \
-    --epochs 200 \
-    --batch 8 \
-    --device 0 \
-    --model yolov8n.pt
+  --epochs 200 \
+  --batch 8 \
+  --device 0 \
+  --model yolov8n.pt
 ```
 
 ### 常用参数
 
-| 参数 | 默认值 | 说明 |
-|------|--------|------|
-| `--epochs` | 100 | 训练轮次 |
-| `--batch` | 16 | 批次大小 (根据GPU显存调整) |
-| `--device` | 0 | GPU 编号 (0/1/2... 或 cpu) |
-| `--model` | yolov8n.pt | 模型大小 (n/s/m/l/x) |
-| `--data` | configs/disaster.yaml | 数据集配置 |
+| 参数       | 默认值                | 说明                       |
+| ---------- | --------------------- | -------------------------- |
+| `--epochs` | 100                   | 训练轮次                   |
+| `--batch`  | 16                    | 批次大小 (根据GPU显存调整) |
+| `--device` | 0                     | GPU 编号 (0/1/2... 或 cpu) |
+| `--model`  | yolov8n.pt            | 模型大小 (n/s/m/l/x)       |
+| `--data`   | configs/disaster.yaml | 数据集配置                 |
 
 ### 模型选择
 
-| 模型 | 参数数量 | 推荐显存 | 速度 | 精度 |
-|------|----------|----------|------|------|
-| yolov8n.pt | 3.2M | 2GB | 最快 | 较低 |
-| yolov8s.pt | 11.2M | 4GB | 快速 | 中等 |
-| yolov8m.pt | 25.9M | 8GB | 中等 | 较高 |
-| yolov8l.pt | 43.7M | 12GB | 较慢 | 高 |
-| yolov8x.pt | 68.2M | 16GB | 最慢 | 最高 |
+| 模型       | 参数数量 | 推荐显存 | 速度 | 精度 |
+| ---------- | -------- | -------- | ---- | ---- |
+| yolov8n.pt | 3.2M     | 2GB      | 最快 | 较低 |
+| yolov8s.pt | 11.2M    | 4GB      | 快速 | 中等 |
+| yolov8m.pt | 25.9M    | 8GB      | 中等 | 较高 |
+| yolov8l.pt | 43.7M    | 12GB     | 较慢 | 高   |
+| yolov8x.pt | 68.2M    | 16GB     | 最慢 | 最高 |
 
 ### 批量大小参考
 
 | GPU 显存 | 推荐 batch size |
-|----------|-----------------|
-| 4GB | 8-16 |
-| 8GB | 16-32 |
-| 12GB | 32-64 |
-| 16GB+ | 64-128 |
+| -------- | --------------- |
+| 4GB      | 8-16            |
+| 8GB      | 16-32           |
+| 12GB     | 32-64           |
+| 16GB+    | 64-128          |
 
 ---
 
@@ -289,19 +291,19 @@ python src/train.py \
 
 ```bash
 python src/predict.py \
-    --model runs/train/exp/weights/best.pt \
-    --source datasets/images/val \
-    --save
+  --model runs/train/exp/weights/best.pt \
+  --source datasets/images/val \
+  --save
 ```
 
 ### 参数说明
 
-| 参数 | 说明 |
-|------|------|
-| `--model` | 模型路径 |
+| 参数       | 说明                      |
+| ---------- | ------------------------- |
+| `--model`  | 模型路径                  |
 | `--source` | 输入源 (图片/文件夹/视频) |
-| `--save` | 保存推理结果 |
-| `--conf` | 置信度阈值 (默认0.25) |
+| `--save`   | 保存推理结果              |
+| `--conf`   | 置信度阈值 (默认0.25)     |
 
 ---
 
@@ -311,19 +313,19 @@ python src/predict.py \
 
 ```bash
 python src/evaluate.py \
-    --model runs/train/exp/weights/best.pt \
-    --data configs/disaster.yaml
+  --model runs/train/exp/weights/best.pt \
+  --data configs/disaster.yaml
 ```
 
 ### 评估指标
 
-| 指标 | 说明 |
-|------|------|
-| mAP@0.5 | IoU=0.5 时的平均精度 |
+| 指标         | 说明                    |
+| ------------ | ----------------------- |
+| mAP@0.5      | IoU=0.5 时的平均精度    |
 | mAP@0.5:0.95 | IoU=0.5~0.95 的平均精度 |
-| Precision | 精确率 |
-| Recall | 召回率 |
-| F1-Score | F1 分数 |
+| Precision    | 精确率                  |
+| Recall       | 召回率                  |
+| F1-Score     | F1 分数                 |
 
 ---
 
@@ -343,10 +345,10 @@ runs/train/exp/
 
 ### 模型文件说明
 
-| 文件 | 说明 | 使用场景 |
-|------|------|----------|
+| 文件      | 说明                  | 使用场景  |
+| --------- | --------------------- | --------- |
 | `best.pt` | 验证集上mAP最高的模型 | 部署/推理 |
-| `last.pt` | 最后一轮的模型 | 继续训练 |
+| `last.pt` | 最后一轮的模型        | 继续训练  |
 
 ### 使用训练好的模型
 
@@ -354,10 +356,10 @@ runs/train/exp/
 from ultralytics import YOLO
 
 # 加载最佳模型
-model = YOLO('runs/train/exp/weights/best.pt')
+model = YOLO("runs/train/exp/weights/best.pt")
 
 # 推理
-results = model('test_image.jpg')
+results = model("test_image.jpg")
 
 # 保存结果
 results[0].save()
@@ -410,6 +412,7 @@ python -c "import torch; print(torch.cuda.is_available())"
 ### Q2: CUDA out of memory
 
 减小 batch size:
+
 ```bash
 python src/train.py --batch 8
 ```
@@ -443,6 +446,7 @@ python src/train.py --resume runs/train/exp/weights/last.pt
 ---
 
 ## 作者
+
 Freak_64
 
 ## 创建日期
