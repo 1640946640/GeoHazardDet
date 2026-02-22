@@ -1,5 +1,8 @@
 # GeoHazardDet - 泥石流/滑坡地质灾害识别项目
 
+[![License](https://img.shields.io/badge/License-AGPL%203.0-blue.svg)](LICENSE)
+[![YOLOv8](https://img.shields.io/badge/Model-YOLOv8-green.svg)](https://github.com/ultralytics/ultralytics)
+
 基于 YOLOv8 的地质灾害目标检测项目，用于识别航拍图像中的泥石流和滑坡区域。
 
 ---
