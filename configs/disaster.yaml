@@ -1,0 +1,56 @@
+# ============================================================
+#  泥石流/滑坡地质灾害识别 - YOLOv8数据集配置文件
+#  GeoHazardDet Dataset Configuration
+# ============================================================
+#
+# 【基于Ultralytics YOLOv8开发】
+# 本项目基于Ultralytics YOLOv8框架开发，遵循AGPL-3.0许可证
+# 参考: https://github.com/ultralytics/ultralytics
+#
+# 【说明】
+# - 本配置文件用于YOLOv8模型训练
+# - 适配2类地质灾害目标检测任务
+# - 类别ID: 0=泥石流(debris_flow), 1=滑坡(landslide)
+#
+# 【数据来源】
+# - 图片: datasets/img/*.tif
+# - 标注: datasets/mask/*.tif (二值分割掩码)
+#
+# 【使用方式】
+# from ultralytics import YOLO
+# model = YOLO('yolov8n.pt')
+# model.train(data='configs/disaster.yaml', epochs=100)
+#
+# ============================================================
+
+# ============ 数据集根目录 ============
+# 使用相对于项目根目录的路径，确保在不同电脑上都能运行
+path: datasets
+
+# ============ 训练/验证/测试集路径 ============
+train: images/train    # 训练集图片目录
+val: images/val        # 验证集图片目录
+test: images/test      # 测试集图片目录（可选）
+
+# ============ 类别数量 ============
+nc: 2
+
+# ============ 类别名称 ============
+names:
+  # 类别ID: 0 - 泥石流
+  0: debris_flow
+  
+  # 类别ID: 1 - 滑坡
+  1: landslide
+
+# ============ 数据格式说明 ============
+# YOLO格式标签文件 (.txt) 结构：
+# <class_id> <x_center> <y_center> <width> <height>
+#
+# 示例（检测到1个泥石流目标）:
+# 0 0.5 0.5 0.3 0.4
+#
+# 标签生成方式：
+# - 从 datasets/mask/ 目录读取二值掩码
+# - 值为1的区域即为灾害目标区域
+# - 自动计算最小外接矩形作为边界框

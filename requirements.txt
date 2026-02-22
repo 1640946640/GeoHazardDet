@@ -1,0 +1,78 @@
+# ============================================================
+#  泥石流/滑坡地质灾害识别项目 - 依赖配置文件
+#  GeoHazardDet Project Requirements
+# ============================================================
+#
+# 【基于Ultralytics YOLOv8开发】
+# 本项目基于Ultralytics YOLOv8框架开发，遵循AGPL-3.0许可证
+# 参考: https://github.com/ultralytics/ultralytics
+#
+# 【说明】
+# - 本项目基于 YOLOv8 开发
+# - 支持训练、推理、评估完整流程
+# - 建议使用 Python 3.8+ 环境
+#
+# 【使用方法】
+# pip install -r requirements.txt
+#
+# ============================================================
+
+# ============ 核心框架 ============
+# Ultralytics YOLOv8 - 目标检测框架
+# 选择稳定版本 v8.1.0+（2024年1月发布）
+ultralytics>=8.1.0,<8.3.0
+
+# ============ 深度学习框架 ============
+# PyTorch - 深度学习基础框架
+# Windows用户建议安装CUDA版本以加速训练
+torch>=2.0.0
+torchvision>=0.15.0
+
+# ============ 数据处理 ============
+# NumPy - 数值计算
+numpy>=1.24.0
+
+# Pandas - 数据分析
+pandas>=2.0.0
+
+# Pillow - 图像处理
+Pillow>=10.0.0
+
+# OpenCV - 计算机视觉
+opencv-python>=4.8.0
+
+# ============ 地理数据处理 ============
+# Shapefile读取（需配合图像数据使用）
+pyshp>=2.3.1
+
+# ============ 可视化与日志 ============
+# Matplotlib - 绑图
+matplotlib>=3.7.0
+
+# Seaborn - 统计可视化
+seaborn>=0.12.0
+
+# tqdm - 进度条
+tqdm>=4.65.0
+
+# ============ 模型优化 ============
+# thop - 计算模型参数量和FLOPs
+thop>=0.1.1
+
+# ============ 工具类 ============
+# PyYAML - YAML文件解析
+PyYAML>=6.0
+
+# ============ 开发与测试 ============
+# pytest - 单元测试
+pytest>=7.4.0
+
+# ============ 可选依赖（GPU加速） ============
+# 如需GPU加速，确保安装对应版本的CUDA
+# 访问 https://pytorch.org/get-started/locally/ 获取安装命令
+#
+# # CUDA 11.8 示例
+# pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+#
+# # CUDA 12.1 示例
+# pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
