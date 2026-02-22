@@ -441,8 +441,7 @@ python src/train.py --resume runs/train/exp/weights/last.pt
 ---
 
 ## 作者
-
-GeoHazardDet Team
+Freak_64
 
 ## 创建日期
 
@@ -458,5 +457,6 @@ GeoHazardDet Team
 
 ### 联系方式 / Contact
 
+- **作者 (Author)**: Freak_64
 - **作者 QQ**: `1640946640`
 - **说明**: 添加好友时请注明 "GeoHazardDet" 或 "地质灾害检测项目"
