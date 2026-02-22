@@ -23,6 +23,22 @@
 
 ---
 
+## 运行效果 / Demo Results
+
+以下是模型在验证集上的部分检测结果示例：
+
+| 场景 1 | 场景 2 |
+|:---:|:---:|
+| ![Result 1](assets/images/result_1.jpg) | ![Result 2](assets/images/result_2.jpg) |
+| **检测到滑坡/泥石流区域** | **复杂地形下的识别效果** |
+
+| 场景 3 | 场景 4 |
+|:---:|:---:|
+| ![Result 3](assets/images/result_3.jpg) | ![Result 4](assets/images/result_4.jpg) |
+| **不同尺度的目标检测** | **航拍视角下的灾害识别** |
+
+---
+
 ## 致谢与声明
 
 本项目基于 [Ultralytics YOLOv8](https://github.com/ultralytics/ultralytics) 框架开发。
