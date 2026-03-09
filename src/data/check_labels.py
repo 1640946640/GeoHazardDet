@@ -1,14 +1,15 @@
 # 详细分析标签文件，找出所有唯一值和区域
-from PIL import Image
-import numpy as np
 from collections import defaultdict
+
+import numpy as np
+from PIL import Image
 
 # 选择多个样本进行分析
 samples = [
-    'moxizheng_0.2m_UAV0069',
-    'moxizheng_0.2m_UAV1680',
-    'moxizheng_0.2m_UAV0060',
-    'moxizheng_0.2m_UAV0059',
+    "moxizheng_0.2m_UAV0069",
+    "moxizheng_0.2m_UAV1680",
+    "moxizheng_0.2m_UAV0060",
+    "moxizheng_0.2m_UAV0059",
 ]
 
 print("=" * 60)
@@ -16,13 +17,13 @@ print("详细标签分析")
 print("=" * 60)
 
 for sample in samples:
-    label_path = f'datasets/label/{sample}.tif'
+    label_path = f"datasets/label/{sample}.tif"
     img = Image.open(label_path)
     arr = np.array(img)
-    
+
     print(f"\n[样本] {sample}")
     print(f"  形状: {arr.shape}, 数据类型: {arr.dtype}")
-    
+
     # 如果是RGB，找出所有唯一颜色
     if len(arr.shape) == 3:
         # 统计所有唯一RGB组合
@@ -32,26 +33,26 @@ for sample in samples:
             for j in range(w):
                 pixel = tuple(arr[i, j])
                 unique_colors.add(pixel)
-        
+
         print(f"  RGB唯一颜色数: {len(unique_colors)}")
-        
+
         # 统计每种颜色的像素数
         color_counts = defaultdict(int)
         for i in range(h):
             for j in range(w):
                 pixel = tuple(arr[i, j])
                 color_counts[pixel] += 1
-        
-        print(f"  颜色统计 (前10种):")
+
+        print("  颜色统计 (前10种):")
         for color, count in sorted(color_counts.items(), key=lambda x: -x[1])[:10]:
             pct = count / (h * w) * 100
             print(f"    {color}: {count} 像素 ({pct:.2f}%)")
-    
+
     else:
         # 灰度图
         unique_vals = np.unique(arr)
         print(f"  唯一值: {unique_vals}")
-        
+
         for v in unique_vals:
             count = (arr == v).sum()
             pct = count / arr.size * 100
@@ -64,8 +65,8 @@ print("=" * 60)
 # 分析第一个样本的连通区域
 from scipy import ndimage
 
-sample = 'moxizheng_0.2m_UAV0069'
-label_path = f'datasets/label/{sample}.tif'
+sample = "moxizheng_0.2m_UAV0069"
+label_path = f"datasets/label/{sample}.tif"
 arr = np.array(Image.open(label_path))
 
 # 转灰度
