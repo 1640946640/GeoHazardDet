@@ -28,9 +28,9 @@
 path: datasets
 
 # ============ 训练/验证/测试集路径 ============
-train: images/train    # 训练集图片目录
-val: images/val        # 验证集图片目录
-test: images/test      # 测试集图片目录（可选）
+train: images/train # 训练集图片目录
+val: images/val # 验证集图片目录
+test: images/test # 测试集图片目录（可选）
 
 # ============ 类别数量 ============
 nc: 2
@@ -39,10 +39,9 @@ nc: 2
 names:
   # 类别ID: 0 - 泥石流
   0: debris_flow
-  
+
   # 类别ID: 1 - 滑坡
   1: landslide
-
 # ============ 数据格式说明 ============
 # YOLO格式标签文件 (.txt) 结构：
 # <class_id> <x_center> <y_center> <width> <height>
